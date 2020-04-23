@@ -22,7 +22,7 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
     * Configurar bloque "MIG 7" Seleccionando "Run Block Automation" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031802.png "Configurando MIG"). Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031823.png "Configurando MIG"). Se produce un error relacionado con las interfaces de la tarjeta. Este error no tiene mayores consecuencias y puede ser ignorado con seguridad.
     * Seleccionar en el Pop-up "Run Connection automation". Esto conectará el bus de sistema de los IP's agregados.![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032203.png "Configurando Autoconexión"). Se deben seleccionar todos menos `microblaze_0` (Ya se ha coenctado). Cerrar la ventana con <kbd>OK</kbd>.
     * Cambiar el reloj de la memoria DRAM al `clk_out2`. Observe que el reloj del controlador de memoria es el mismo que el de el bus del sistema. Si se deja en estas condiciones, se estará desaprovechando la velocidad de la memoria ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032915.png "Red de Reloj")
-      * Desconectar el pin `sys_clk_i` (Botón derecho, "Disconnect Pin" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032915.png "Desconexión `sys_clk_i`")
+      * Desconectar el pin `sys_clk_i` (Botón derecho, "Disconnect Pin") ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032915.png "Desconexión `sys_clk_i`")
       * Conectar `sys_clk_i` con `clk_out2` ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_033049.png "Conexión `sys_clk_i` con `clk_out2`").
      * Conectar la memoria DRAM al controlador seleccionando el pin `DDR3`, botón derecho y seleccionando "Make External" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_034008.png "Conexión `DDR3`")![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_034027.png "Conexión `DDR3` lista")
     * Habilitar las interrupciones del bloque "AXI GPIO" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_035404.png "Habilitando Interrupciones")
@@ -30,7 +30,7 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
     * Conectar al bloque concat las interrupciones de los IP's que se agregaron ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_040324.png "Conectando Interrupciones")
         
     
-### Opcionales ###
+# Opcionales #
 * Agregar BRAM 
   * Agregar el bloque *BRAM Controller*.
   * Agregar el bloque *Block Memory Generator*.
@@ -45,6 +45,6 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
 * Exportar Hardware, incluyendo el bitstream
 ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200420_023711.png "Configurando GPIO")
 
-
+## Aplicaciones *Baremetal* Con Xilinx Vitis ##
 
 
