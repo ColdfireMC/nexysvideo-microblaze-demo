@@ -1,54 +1,33 @@
 # *Setup* Básico Con Digilent *Nexys Video* #
 
-* Crear un "Block Design" de Vivado.
-
-* Importar *Constraints*, si se desea agregar RTL (Prefiera activar copiar el .xdc dentro del proyecto.	
-
-* Agregar un PS "ZYNQ 7 Processing System" (CPU principal).
-
-![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022002.png "Agregando un Microblaze")
-* Configurar el CPU principal.
-    * Ejecutar "Run block Automation". Esto configurara la memoria DRAM y el reloj.
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_182012.png "Autoconfigurar PS")
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_182859.png "Autoconfigurar PS")
-Cerrar la ventana con <kbd>OK</kbd>
-    * Doble clic al bloque ZYNQ (Esto produce el comando "Re-customize" IP).
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_182859.png "Configurando Interrupciones del PS")
-        * Ir a la seccion "*Interrupts*".
-        * Habilitar "Enable PS-PL Interrupts".
-        * Habilitar "Enable Shared Interrupts".
-       
-* Conectar `FCLK_CLK0` con `M_AXI_GP0_ACLK`. Este reloj tambien sera el reloj principal del bus AXI.
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_191246.png "Conectar Reloj Principal al Bus AXI"). (Los *Warnings* no generan mayores problemas).
+* Crear un "Block Design" de Vivado.![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022002.png "Creando un Diseño de Bloques") ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022833.png "Agregar IP")
+* Importar *Constraints*, si se desea agregar RTL (Prefiera activar copiar el .xdc dentro del proyecto).	
+* Agregar un "Microblaze" (CPU principal). ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022848.png "Agregando un CPU Microblaze")
+* Configurar el CPU principal
+   * Ejecutar "Run block Automation". Esto configurara la memoria DRAM y el reloj. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_023459.png "Agregando un CPU Microblaze")
+   * Especificar el tipo de CPU que se desea sintetizar. Para linux, se recomienda *Application*. También puede especificarse memoria local. Podría ser necesaria en caso de necesitar maniobrar con el bootloader antes de que la memoria DRAM se inicialice. Como no hay reloj, especificar *New clocking Wizard*. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_023550.png "Configurado Microblaze, Confirmar con Ok")
+Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras agrega los bloques de interconexión necesarios.
+* Configurar El reloj: Doble clic sobre el el bloque *Clock Wizard*.
+   * Ir a la seccion "*Board*".
+     * Asegurarse que esté seleccionado `sys_clk` en `CLK_IN1` y `reset` en `EXT_RESET_IN`. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_025541.png "Configurado *Clock Wizard*")
+  * Ir a la seccion "*Output Clocks*".![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_030639.png "Configurado *Clock Wizard*")
+    * Habilitar `clk_out2` y darle una frecuencia de 200 Mhz. Esta será la frecuencia de la DRAM.
+    * Seleccionar `clk_out3` y darle una frecuencia de 125 Mhz. Esta sería la frecuencia del IP MAC de la Red Ethernet. Habilítela sólo si agrega el IP de Ethernet.
+    * Cambiar la polaridad del *Reset* a "Active Low".![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031051.png "Configurado *Clock Wizard* y Polaridad del *Reset*"). Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes.
+* Configurar las líneas de Interrupción. El controlador de interrupciones recibe líneas de interrupción como un vector lógico, pero los dispositivos tienen salidas de interrupción de tipo bit, por lo tanto debe usarse un bloque concat para cambiar el tipo: 
+ * Hacer doble clic en el bloque concat 
+ * Cambiar la cantidad de líneas de 2 a las que sean necesarias ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031207.png "Configurado líneas de interrupción") ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031216.png "Resultado de Cambiar la cantidad de líneas"). Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes.
 * Agregar y Configurar IP's
-    * Agregar *Processor System Reset* y *Run Connection Automation*
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_191335.png "*Run Connection Automation*")
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192129.png "*Run Connection Automation*")
-     ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192143.png "*Run Connection Automation*")
-    
-    * Agregar *Concat*, *AXI IIC*, *AXI QUAD SPI* y 2 *AXI GPIO*.
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192221.png "Agregando Concat")
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192323.png "Agregando GPIO")
-    * Configurar bloque *Concat*: Dado que el tipo de `IRQ_F2P` no es compatible con las lineas de interrupcion, deben concatenarse las lineas en un solo vector lógico. Este bloque puede juntar las lineas de interrupción. Debe agregarse una entrada por cada interrupción
-         * Doble Clic en *Concat*
-         * Editar el ampo *Number of Ports*. En este caso serian 4 lineas (Una por cada dispositivo con Interrupción).
-         ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192529.png "Configurando Concat")
-    * Configurar *AXI GPIO*: Doble clic en el bloque
-      * Habilitar Interrupciones
-      ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_192347.png "Configurando GPIO")
-      * Puede seleccionarse a que conectar cada interfaz GPIO, a las conexiones disponibles en el preset de la placa. Si se desea conectar RTL o usar los nombres de los .xdc, debe seleccionarse *Custom* y crear un puerto (Véase Agregar RTL).
-      ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_193423.png "Configurando GPIO")
-      ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_193445.png "Configurando GPIO")
-    * Los otros bloques usan en este caso la configuración predeterminada.
-* Conectar los bloques de IP: Puede autoconectarse los bloques IP AXI. Nótese que la conexión automática no conecta las interrupciones y solo puede autoconectar un reloj.
-  * Hacer clic en el pop-up *Run Connection Automation
-  * Seleccionar todos los bloques en las casillas.
-  Esto hará que se genere automáticamente un bloque de interconexión y arbitraje AXI y las líneas de dirección y datos del bus.
-  * Conectar Lineas de Interrupción
-    * Conectar La salida del bloque concat al *ZYNQ Processor System*.
-    * Conectar cada una de las líneas de interrupción de los bloques IP perifericos agregados al bloque *Concat*.
-    ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_193211.png "Configurando GPIO")
-    
+    * Agregar "AXI QUAD SPI" "AXI Timer" "AXI UART16550", "AXI GPIO" y "MIG 7". ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031216.png "Resultado de Cambiar la cantidad de líneas")
+    * Configurar bloque "MIG 7" Seleccionando "Run Block Automation" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031802.png "Configurando MIG"). Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_031823.png "Configurando MIG"). Se produce un error relacionado con las interfaces de la tarjeta. Este error no tiene mayores consecuencias y puede ser ignorado con seguridad.
+    * Seleccionar en el Pop-up "Run Connection automation". Esto conectará el bus de sistema de los IP's agregados.![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032203.png "Configurando Autoconexión"). Se deben seleccionar todos menos `microblaze_0` (Ya se ha coenctado). Cerrar la ventana con <kbd>OK</kbd>.
+    * Cambiar el reloj de la memoria DRAM al `clk_out2`. Observe que el reloj del controlador de memoria es el mismo que el de el bus del sistema. Si se deja en estas condiciones, se estará desaprovechando la velocidad de la memoria ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032915.png "Red de Reloj")
+      * Desconectar el pin `sys_clk_i` (Botón derecho, "Disconnect Pin" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_032915.png "Desconexión `sys_clk_i`")
+      * Conectar `sys_clk_i` con `clk_out2` ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_033049.png "Conexión `sys_clk_i` con `clk_out2`").
+     * Conectar la memoria DRAM al controlador seleccionando el pin `DDR3`, botón derecho y seleccionando "Make External" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_034008.png "Conexión `DDR3`")![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_034027.png "Conexión `DDR3` lista")
+    * Habilitar las interrupciones del bloque "AXI GPIO" ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_035404.png "Habilitando Interrupciones")
+    * De la pestaña board, conectar "QSPI Flash", "5 Pushbuttons" y "8 leds"
+    * Conectar al bloque concat las interrupciones de los IP's que se agregaron ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_040324.png "Conectando Interrupciones")
         
     
 ### Opcionales ###
@@ -56,16 +35,7 @@ Cerrar la ventana con <kbd>OK</kbd>
   * Agregar el bloque *BRAM Controller*.
   * Agregar el bloque *Block Memory Generator*.
   Pueden configurarse las caracteristicas de la BRAM, como la cantidad de puertos, el ancho y la capacidad máxima.
-* Agregar Interfaz de gestion del Ethernet PHY (Sólo Zybo).
-  * Descomentar las lineas 49 y 50 
-  ``` 
-  set_property -dict { PACKAGE_PIN F16   IOSTANDARD LVCMOS33 } [get_ports eth_int_b]; #IO_L6P_T0_35 Sch=ETH_INT_B
-  set_property -dict { PACKAGE_PIN E17   IOSTANDARD LVCMOS33 } [get_ports eth_rst_b]; #IO_L3P_T0_DQS_AD1P_35 Sch=ETH_RST_B
-  
-  ```
-  * Crear puertos con los nombres `eth_int_b` y `eth_rst_b`.
-  * Conectar `eth_int_b` a concat y `eth_rst_b`, a `peripheral_aresetn`
-  
+
 ## Generación de Productos ##
 * Crear *Wrapper* de HDL(botón derecho sobre el diseño de bloques (el archivo .bd, en la pestaña *Sources*). (Esto encapsula el diseño y lo hace referenciable por el simulador y el sintetizador).
 
