@@ -1,5 +1,5 @@
 # *Setup* Básico Con Digilent *Nexys Video* #
-** Síntesis de RTL con Vivado #
+## Síntesis de RTL con Vivado ##
 * Crear un "Block Design" de Vivado.![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022002.png "Creando un Diseño de Bloques") ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022833.png "Agregar IP")
 * Importar *Constraints*, si se desea agregar RTL (Prefiera activar copiar el .xdc dentro del proyecto).	
 * Agregar un "Microblaze" (CPU principal). ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022848.png "Agregando un CPU Microblaze")
