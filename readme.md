@@ -1,9 +1,12 @@
-# *Setup* Básico Con Digilent *Zybo* o *PYNQ* #
+# *Setup* Básico Con Digilent *Nexys Video* #
 
 * Crear un "Block Design" de Vivado.
+
 * Importar *Constraints*, si se desea agregar RTL (Prefiera activar copiar el .xdc dentro del proyecto.	
+
 * Agregar un PS "ZYNQ 7 Processing System" (CPU principal).
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_181928.png "Agregando un PS")
+
+![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_022002.png "Agregando un Microblaze")
 * Configurar el CPU principal.
     * Ejecutar "Run block Automation". Esto configurara la memoria DRAM y el reloj.
 ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_182012.png "Autoconfigurar PS")
