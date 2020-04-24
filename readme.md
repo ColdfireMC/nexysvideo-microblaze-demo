@@ -30,13 +30,12 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
     * Conectar al bloque concat las interrupciones de los IP's que se agregaron ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200421_040324.png "Conectando Interrupciones")
         
     
-# Opcionales #
+### Opcionales ###
 * Agregar BRAM 
   * Agregar el bloque *BRAM Controller*.
   * Agregar el bloque *Block Memory Generator*.
   Pueden configurarse las caracteristicas de la BRAM, como la cantidad de puertos, el ancho y la capacidad máxima.
 
-## Generación de Productos ##
 * Crear *Wrapper* de HDL(botón derecho sobre el diseño de bloques (el archivo .bd, en la pestaña *Sources*). (Esto encapsula el diseño y lo hace referenciable por el simulador y el sintetizador).
 
 ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_193758.png "Configurando GPIO")
@@ -47,4 +46,5 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
 
 ## Aplicaciones *Baremetal* Con Xilinx Vitis ##
 
+Después de exportar el hardware, Abrir Xilinx Vitis
 
