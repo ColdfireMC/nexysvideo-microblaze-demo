@@ -51,7 +51,7 @@ Después de exportar el hardware, Abrir Xilinx Vitis. Al ser similar a Eclipse c
 * Crear una aplicación *Baremetal* 
  * Ir a "File"->"Project"->"Application"
  * Darle un nombre al proyecto. No ponerle espacios al nombre.
- * Selecionar la plataforma del proyecto. Puede seleccionarse una plataforma existente (Lamentablemente está *buggy* no ocupar) o crear una nueva. ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200423_183739.png "Configurando proyecto de Aplicación")
+ * Selecionar la plataforma del proyecto. Puede seleccionarse una plataforma existente (Lamentablemente está *buggy* no ocupar) o crear una nueva. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_183739.png "Configurando proyecto de Aplicación")
   * Al presionar <kbd>Next</kbd>, debe seleccionarse que método será usado para generar la plataforma. ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200423_183750.png "Configurando Plataforma"). Seleccionar "Create new platform from Hardware (XSA)"
   * La ventana tiene un campo donde se listan plataformas recientes disponibles en los ejemplos o bien dentro del *Workspace*. Seleccionar "Create new platform from Hardware (XSA)".Si se necesita importar una plataforma de elaboración propia (el presente caso), debe hacer clic en "+" y seleccionar la carpeta donde se encuentra el archivo `.xsa` que se generó al exportar hardware con Vivado. ![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200423_183803.png "Importando Hardware")
    *
