@@ -86,11 +86,11 @@ En este caso "helloworld.c" es el archivo con el procedimiento `main`. Todo lo q
 
 ### Generando Ejecutable ###
 
-Al presionar "build" (El martillo) se construye la aplicación y el entorno, completos, según el objetivo que se haya establecido. Al lado del ícono, aparece una flecha, donde se puede seleccionar el objetivo de compilación ("Debug", "Release" u otro que se haya creado).
+Al presionar "build" (el martillo) se construye la aplicación y el entorno, completos, según el objetivo que se haya establecido. Al lado del ícono, aparece una flecha, donde se puede seleccionar el objetivo de compilación ("Debug", "Release" u otro que se haya creado).
 
 ### Generando Imagen ###
 
-Del menú "Xilinx" debe seleccionarse "Program FPGA". Luego debe adjuntarse a la imagen, la aplicación recién compilada. En el procesador que aparece. Nótese que podría haber más de un procesador, y que en realidad este depende de la plataforma importada y no de la aplicación. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Luego de eso debe presionarse <kbd>Generate</kbd>. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Esto tomará unos instantes.
+Del menú "Xilinx" debe seleccionarse "Program FPGA". Luego debe adjuntarse a la imagen, la aplicación recién compilada, en el procesador que aparece. Nótese que podría haber más de un procesador, y que en realidad este depende de la plataforma importada y no de la aplicación. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Luego de eso debe presionarse <kbd>Generate</kbd>. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Esto tomará unos instantes.
 
 ### *Flasheando* Imagen ###
 
