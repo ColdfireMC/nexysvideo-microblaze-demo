@@ -90,7 +90,7 @@ Al presionar "build" (el martillo) se construye la aplicación y el entorno, com
 
 ### Generando Imagen ###
 
-Del menú "Xilinx" debe seleccionarse "Program FPGA". Luego debe adjuntarse a la imagen, la aplicación recién compilada, en el procesador que aparece. Nótese que podría haber más de un procesador, y que en realidad este depende de la plataforma importada y no de la aplicación. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Luego de eso debe presionarse <kbd>Generate</kbd>. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Esto tomará unos instantes.
+Del menú "Xilinx" debe seleccionarse "Program FPGA". Luego debe adjuntarse a la imagen, la aplicación recién compilada, en el procesador que aparece. Nótese que podría haber más de un procesador, y que en realidad este depende de la plataforma importada y no de la aplicación. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185312.png "Generando Bitstream") Luego de eso debe presionarse <kbd>Generate</kbd>. ![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-vitis-doc/Screenshot_20200423_185301.png "Generando Bitstream") Esto tomará unos instantes.
 
 ### *Flasheando* Imagen ###
 
