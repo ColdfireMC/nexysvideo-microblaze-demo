@@ -38,11 +38,11 @@ Cerrar la ventana con <kbd>OK</kbd>. Esto tardará algunos instantes mientras ag
 
 * Crear *Wrapper* de HDL(botón derecho sobre el diseño de bloques (el archivo .bd, en la pestaña *Sources*). (Esto encapsula el diseño y lo hace referenciable por el simulador y el sintetizador).
 
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_193758.png "Configurando GPIO")
+![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200416_193758.png "Configurando GPIO")
 * Generar bitstream (Esto podria tardar hasta una hora)
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200416_194026.png "Configurando GPIO")
+![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200416_194026.png "Configurando GPIO")
 * Exportar Hardware, incluyendo el bitstream
-![TEXTO_DESC](https://github.com/ColdfireMC/pynq-demo/blob/master/Screenshot_20200420_023711.png "Configurando GPIO")
+![TEXTO_DESC](https://github.com/ColdfireMC/nexysvideo-microblaze-petalinux-demo/blob/master/microblaze-petalinux-doc/Screenshot_20200420_023711.png "Configurando GPIO")
 
 ## Aplicaciones *Baremetal* Con Xilinx Vitis ##
 
